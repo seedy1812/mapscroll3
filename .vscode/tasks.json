@@ -1,0 +1,42 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "${env:CSPECT}/snasm.exe",
+            "args": [
+                "-dIS_NEX",
+                "-map",
+                "-next",
+                "-sound",
+                "mapscroll3.s",
+                "mapscroll3.out"
+            ],
+            "presentation": {
+                "clear": true 
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "run nex",
+            "type": "shell",
+            "command": "${env:CSPECT}/CSpect.exe",
+            "args": [
+                "-w8",
+                "-zxnext",
+                "-debug",
+                "-rewind",
+                "-brk",
+                "-sound",
+                "-mmc=${workspaceFolder}\\",
+                "-map=${workspaceFolder}\\mapscroll3.out.map",
+                "${workspaceFolder}\\mapscroll3.nex"
+            ],
+            "problemMatcher": []
+        }
+    ]
+}
