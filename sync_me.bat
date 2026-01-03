@@ -1,0 +1,1 @@
+copy *.nex c:\zx\nextsync
